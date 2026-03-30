@@ -97,6 +97,13 @@
       line-height:1.9;
       color:#7b6759;
     }
+    .hero-helper{
+      margin-top:14px;
+      max-width:620px;
+      font-size:15px;
+      line-height:1.8;
+      color:#8a7568;
+    }
     .actions{
       display:flex; gap:14px; flex-wrap:wrap; margin-top:28px;
     }
@@ -111,8 +118,9 @@
     .btn-secondary{background:rgba(255,255,255,.76); color:#6a574b; border-color:var(--line)}
 
     .hero-cards{
-      display:grid; grid-template-columns:1fr 1fr; gap:18px;
+      display:grid; grid-template-columns:1.18fr .82fr; gap:18px;
     }
+    .hero-cards-v7{align-items:stretch}
     .hero-card{
       background:rgba(255,255,255,.8);
       border:1px solid var(--line);
@@ -120,12 +128,21 @@
       padding:18px;
       box-shadow:var(--shadow);
     }
-    .hero-card:nth-child(2){margin-top:42px}
+    .hero-card-main{
+      padding:18px;
+    }
+    .hero-card-side{
+      margin-top:54px;
+    }
     .hero-card .photo{
       height:360px;
       border-radius:22px;
       object-fit:cover;
       width:100%;
+    }
+    .photo-main{
+      height:460px !important;
+      object-position:center top;
     }
     .hero-card h3{
       margin:14px 0 0;
@@ -400,7 +417,7 @@
     .floating-wa{
       position:fixed;
       right:18px;
-      bottom:18px;
+      bottom:115px;
       z-index:99;
       background:#d8bfa7;
       color:#4d4037;
@@ -412,7 +429,7 @@
     }
 
     @media (max-width: 980px){
-      .hero-grid,.services-grid,.portfolio-grid,.promo-grid,.testimonials-grid,.book-grid,.contact-grid,.footer-grid,.hero-cards{
+      .hero-grid,.services-grid,.portfolio-grid,.promo-grid,.testimonials-grid,.book-grid,.contact-grid,.footer-grid,.hero-cards,.avatar-grid{
         grid-template-columns:1fr;
       }
       .hero-card:nth-child(2){margin-top:0}
@@ -438,6 +455,7 @@
         <a href="#servicios">Servicios</a>
         <a href="#resultados">Resultados</a>
         <a href="#promocion">Promoción</a>
+        <a href="#avatar">Avatar</a>
         <a href="#agenda">Agenda</a>
         <a href="#contacto">Contacto</a>
       </nav>
@@ -457,18 +475,21 @@
             <a class="btn btn-primary" href="#agenda">Agenda tu cita</a>
             <a class="btn btn-secondary" href="#avatar">Consulta con Lovely Jacky</a>
           </div>
+          <p class="hero-helper">
+            ¿Tienes dudas? Habla con <strong>Lovely Jacky</strong>, nuestro asistente virtual de atención, y recibe orientación antes de agendar tu cita.
+          </p>
         </div>
 
-        <div class="hero-cards">
-          <article class="hero-card">
-            <img class="photo" src="img/hero-portada.jpg" alt="Portada Lovely Jacky Hair Studio" />
-            <h3>Imagen, estilo y atención premium</h3>
-            <p>Elegí esta portada porque da presencia, calidez y una bienvenida más viva a la página.</p>
+        <div class="hero-cards hero-cards-v7">
+          <article class="hero-card hero-card-main">
+            <img class="photo photo-main" src="img/hero-portada.jpg" alt="Portada Lovely Jacky Hair Studio" />
+            <h3>Bienvenida a tu próxima versión</h3>
+            <p>Color, diseño, técnica y estilo en una experiencia creada para que te veas espectacular desde el primer vistazo.</p>
           </article>
-          <article class="hero-card">
+          <article class="hero-card hero-card-side">
             <img class="photo" src="img/balayage-caramelo-premium.jpg" alt="Balayage caramelo" />
-            <h3>Balayage caramelo</h3>
-            <p>Dimensión cálida, contraste bonito y un acabado más elegante para la sección principal.</p>
+            <h3>Resultados con intención</h3>
+            <p>Balayage, correcciones, queratinas y cambios de look con una estética elegante y femenina.</p>
           </article>
         </div>
       </div>
@@ -638,7 +659,42 @@
     </section>
 
 
-    <section id="faq" style="background:linear-gradient(180deg,#fffaf6 0%,#f8f0e8 100%); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+    
+    <section id="avatar" style="background:linear-gradient(180deg,#fffaf6 0%,#f5ebe1 100%); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+      <div class="container avatar-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+        <div class="card" style="padding:0;overflow:hidden;">
+          <div style="padding:16px;background:#f2e7dc;">
+            <div style="border-radius:24px;overflow:hidden;position:relative;background:linear-gradient(180deg,#ead8c8 0%,#d8bfa7 100%);">
+              <div style="position:absolute;top:18px;left:18px;z-index:2;" class="badge">Asistente virtual</div>
+              <img src="img/avatar-lovely-jacky.jpg" alt="Lovely Jacky, asistente virtual" style="width:100%;height:520px;object-fit:cover;object-position:center top;display:block;">
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow">Avatar de atención</p>
+          <h3 class="section-title">Conoce a Lovely Jacky, tu asistente virtual</h3>
+          <p class="section-copy">
+            Lovely Jacky puede orientarte sobre nuestros servicios, resolver dudas frecuentes y ayudarte a dar el siguiente paso hacia tu cita. Si necesitas información sobre color, balayage, correcciones, queratinas, peinados o disponibilidad, puedes consultarlo directamente en el chat del sitio.
+          </p>
+          <div class="card" style="margin-top:20px;">
+            <h4 style="margin:0;font-family:'Cormorant Garamond',serif;font-size:30px;color:#6a584c;">Lovely Jacky puede ayudarte a</h4>
+            <ul class="promo-list" style="margin-top:16px;">
+              <li>Resolver dudas sobre servicios y cambios de look.</li>
+              <li>Orientarte sobre color, balayage, correcciones, queratinas, peinados, maquillaje y uñas.</li>
+              <li>Ayudarte a entender cómo agendar tu cita.</li>
+              <li>Guiarte al apartado de <strong>Agendar cita</strong> para revisar disponibilidad.</li>
+            </ul>
+            <p class="section-copy">El chat de la esquina inferior derecha corresponde a <strong>Lovely Jacky</strong>, nuestro asistente virtual de atención.</p>
+            <div class="actions" style="margin-top:18px;">
+              <a class="btn btn-primary" href="https://wa.me/524421729654" target="_blank" rel="noopener noreferrer">Agendar por WhatsApp</a>
+              <a class="btn btn-secondary" href="#agenda">Ver formulario</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section id="faq" style="background:linear-gradient(180deg,#fffaf6 0%,#f8f0e8 100%); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
       <div class="container">
         <p class="eyebrow">Preguntas frecuentes</p>
         <h3 class="section-title">Resolvemos tus dudas antes de tu cita</h3>
@@ -764,5 +820,9 @@
   </footer>
 
   <a class="floating-wa" href="https://wa.me/524421729654" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+
+  <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2026/03/30/06/20260330064037-DW5A4T7O.js" defer></script>
+
 </body>
 </html>
