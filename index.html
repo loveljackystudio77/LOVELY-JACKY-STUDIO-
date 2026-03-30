@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lovely Jacky Hair Studio</title>
+  <meta name="description" content="Lovely Jacky Hair Studio. Tu mejor versión comienza en tu cabello." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f8f3ee;
+      --bg-soft:#fcf8f4;
+      --card:#fffaf6;
+      --line:#e8d9ca;
+      --text:#5d4d42;
+      --muted:#836f61;
+      --accent:#d8bfa7;
+      --accent-deep:#b79477;
+      --shadow:0 18px 42px rgba(163,136,113,.12);
+      --radius:28px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:linear-gradient(180deg,#fbf7f2 0%,#f4ebe2 100%);
+      color:var(--text);
+      font-family:"Inter",system-ui,sans-serif;
+    }
+    img{max-width:100%;display:block}
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1180px,calc(100% - 32px));margin:0 auto}
+
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background:rgba(248,243,238,.92);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:24px; padding:18px 0;
+    }
+    .brand-title{
+      margin:0;
+      font-family:"Cormorant Garamond",serif;
+      font-size:30px;
+      line-height:1;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      color:#7b6759;
+      font-weight:600;
+    }
+    .brand-subtitle{
+      margin:6px 0 0;
+      font-size:14px;
+      color:var(--muted);
+    }
+    .nav{
+      display:flex; gap:18px; flex-wrap:wrap;
+      font-size:14px; color:#7a6558;
+    }
+
+    .hero{
+      padding:76px 0 56px;
+      background:
+        radial-gradient(circle at top, rgba(216,191,167,.35), transparent 30%),
+        linear-gradient(180deg,#fcf8f4 0%,#f4eade 100%);
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:30px; align-items:center;
+    }
+    .eyebrow{
+      margin:0 0 16px;
+      text-transform:uppercase;
+      letter-spacing:.32em;
+      color:var(--accent-deep);
+      font-size:12px;
+      font-weight:600;
+    }
+    .hero h2{
+      margin:0;
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(46px,6vw,78px);
+      line-height:.98;
+      font-weight:600;
+      color:#5a4a3f;
+    }
+    .hero p{
+      margin:22px 0 0;
+      max-width:640px;
+      font-size:16px;
+      line-height:1.9;
+      color:#7b6759;
+    }
+    .actions{
+      display:flex; gap:14px; flex-wrap:wrap; margin-top:28px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      border-radius:999px; padding:14px 22px;
+      font-size:14px; font-weight:600;
+      transition:.2s ease; border:1px solid transparent;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn-primary{background:var(--accent); color:#4d4037; box-shadow:var(--shadow)}
+    .btn-secondary{background:rgba(255,255,255,.76); color:#6a574b; border-color:var(--line)}
+
+    .hero-cards{
+      display:grid; grid-template-columns:1fr 1fr; gap:18px;
+    }
+    .hero-card{
+      background:rgba(255,255,255,.8);
+      border:1px solid var(--line);
+      border-radius:30px;
+      padding:18px;
+      box-shadow:var(--shadow);
+    }
+    .hero-card:nth-child(2){margin-top:42px}
+    .hero-card .photo{
+      height:360px;
+      border-radius:22px;
+      object-fit:cover;
+      width:100%;
+    }
+    .hero-card h3{
+      margin:14px 0 0;
+      font-family:"Cormorant Garamond",serif;
+      font-size:32px;
+      color:#6c5749;
+    }
+    .hero-card p{
+      margin:10px 0 0;
+      font-size:14px;
+      line-height:1.8;
+      color:#8b7668;
+    }
+
+    section{padding:72px 0}
+    .section-title{
+      margin:0;
+      font-family:"Cormorant Garamond",serif;
+      font-size:clamp(36px,4vw,52px);
+      color:#5c4b40;
+    }
+    .section-copy{
+      max-width:760px;
+      margin:14px 0 0;
+      color:#866f61;
+      line-height:1.9;
+      font-size:15px;
+    }
+
+    .services-grid{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+    }
+    .card{
+      background:rgba(255,255,255,.82);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:0 14px 34px rgba(166,138,114,.08);
+    }
+    .icon{
+      width:48px;height:48px;border-radius:16px;background:#efe1d4;margin-bottom:16px;
+    }
+    .card h4{
+      margin:0;
+      font-family:"Cormorant Garamond",serif;
+      font-size:30px;
+      color:#6a584c;
+    }
+    .card p{
+      margin:12px 0 0;
+      line-height:1.85;
+      color:#8a7568;
+      font-size:14px;
+    }
+
+    .results{
+      background:var(--bg-soft);
+      border-top:1px solid var(--line);
+      border-bottom:1px solid var(--line);
+    }
+    .portfolio-grid{
+      margin-top:30px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:22px;
+    }
+    .portfolio-card{
+      overflow:hidden;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:28px;
+      box-shadow:var(--shadow);
+    }
+    .portfolio-media{
+      background:#f3e7db;
+      padding:12px;
+    }
+    .portfolio-media img{
+      width:100%;
+      border-radius:20px;
+      height:360px;
+      object-fit:cover;
+      object-position:center;
+      background:#f8f1ea;
+    }
+    .portfolio-content{padding:20px 22px 24px}
+    .portfolio-content h4{
+      margin:0;
+      font-family:"Cormorant Garamond",serif;
+      font-size:30px;
+      color:#6c574a;
+    }
+    .portfolio-content p{
+      margin:10px 0 0;
+      line-height:1.8;
+      color:#8a7568;
+      font-size:14px;
+    }
+    .label{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:9px 12px;
+      border-radius:999px;
+      background:#fff7f0;
+      border:1px solid #ead9ca;
+      color:#9a816d;
+      font-size:11px;
+      font-weight:700;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      margin-bottom:12px;
+    }
+
+    .promo-section{
+      background:linear-gradient(180deg,#fffaf6 0%,#f7efe7 100%);
+      border-bottom:1px solid var(--line);
+    }
+    .promo-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      margin-top:30px;
+    }
+    .promo-card,.testimonials-card,.footer-box{
+      background:rgba(255,255,255,.82);
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+    .promo-card h4,.testimonials-card h4{
+      margin:14px 0 0;
+      font-family:"Cormorant Garamond",serif;
+      font-size:34px;
+      color:#5e4d42;
+    }
+    .promo-card p,.testimonial p,.footer-copy{
+      color:#836f61; line-height:1.85; font-size:14px;
+    }
+    .promo-list{
+      margin:18px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:12px;
+      color:#765f52;
+      font-size:14px;
+    }
+    .promo-list li{
+      padding:14px 16px;
+      background:#fff8f2;
+      border:1px solid #efdfd1;
+      border-radius:18px;
+    }
+    .testimonials-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:22px;
+    }
+    .testimonial{
+      padding:18px;
+      border-radius:20px;
+      background:#fff9f3;
+      border:1px solid #efdfd1;
+    }
+    .testimonial strong{
+      display:block;
+      margin-top:14px;
+      color:#6d594c;
+      font-size:14px;
+    }
+
+    .book-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:22px;
+      margin-top:30px;
+    }
+    .form-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin-top:24px;
+    }
+    .input,.textarea,.select{
+      width:100%;
+      border:1px solid var(--line);
+      background:#fffdfb;
+      border-radius:18px;
+      padding:14px 16px;
+      color:#6d5a4f;
+      font-size:14px;
+      outline:none;
+    }
+    .textarea{min-height:130px; resize:vertical; grid-column:1/-1}
+    .full{grid-column:1/-1}
+    .check-item{
+      border:1px solid var(--line);
+      border-radius:20px;
+      background:#fff;
+      padding:16px;
+      margin-top:14px;
+    }
+    .check-item strong{
+      display:block;
+      font-size:14px;
+      color:#6d5b4f;
+      margin-bottom:10px;
+    }
+    .chips{display:flex; gap:8px; flex-wrap:wrap}
+    .chip{
+      background:#f2e7dc;
+      color:#8b7567;
+      padding:8px 12px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:700;
+    }
+
+    .contact{
+      background:linear-gradient(180deg,#faf5ef 0%,#f3e8de 100%);
+      border-top:1px solid var(--line);
+    }
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:start;
+    }
+    .contact-list{
+      color:#6d5a4f;
+      line-height:1.9;
+      font-size:15px;
+    }
+    .contact-list strong{color:#55463b}
+
+    .footer-premium{
+      background:linear-gradient(180deg,#f6ede5 0%,#efe2d6 100%);
+      border-top:1px solid var(--line);
+      padding:26px 0 34px;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:20px;
+      align-items:start;
+    }
+    .footer-brand{
+      margin:0;
+      font-family:"Cormorant Garamond",serif;
+      font-size:34px;
+      line-height:1;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:#5e4d42;
+    }
+    .footer-copy{margin:12px 0 0}
+    .footer-links{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+      font-size:14px;
+      color:#755f52;
+    }
+
+    .floating-wa{
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:99;
+      background:#d8bfa7;
+      color:#4d4037;
+      padding:14px 18px;
+      border-radius:999px;
+      box-shadow:var(--shadow);
+      font-size:14px;
+      font-weight:700;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,.services-grid,.portfolio-grid,.promo-grid,.testimonials-grid,.book-grid,.contact-grid,.footer-grid,.hero-cards{
+        grid-template-columns:1fr;
+      }
+      .hero-card:nth-child(2){margin-top:0}
+    }
+    @media (max-width: 720px){
+      .topbar-inner{flex-direction:column;align-items:flex-start}
+      .form-grid{grid-template-columns:1fr}
+      .portfolio-media img{height:320px}
+      .hero{padding-top:48px}
+      section{padding:56px 0}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div>
+        <h1 class="brand-title">Lovely Jacky Hair Studio</h1>
+        <p class="brand-subtitle">Tu mejor versión comienza en tu cabello</p>
+      </div>
+      <nav class="nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#resultados">Resultados</a>
+        <a href="#promocion">Promoción</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Femenina · Minimalista · Profesional</p>
+          <h2>Tu cabello habla antes que tú. Haz que diga algo inolvidable.</h2>
+          <p>
+            En <strong>LOVELY JACKY HAIR STUDIO</strong> transformamos tu imagen con color, técnica y atención personalizada. Creamos cambios de look, balayage, correcciones, queratinas, peinados y más, para que te veas espectacular y te sientas segura de tu estilo.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#agenda">Agenda tu cita</a>
+            <a class="btn btn-secondary" href="#avatar">Consulta con Lovely Jacky</a>
+          </div>
+        </div>
+
+        <div class="hero-cards">
+          <article class="hero-card">
+            <img class="photo" src="img/hero-portada.jpg" alt="Portada Lovely Jacky Hair Studio" />
+            <h3>Imagen, estilo y atención premium</h3>
+            <p>Elegí esta portada porque da presencia, calidez y una bienvenida más viva a la página.</p>
+          </article>
+          <article class="hero-card">
+            <img class="photo" src="img/balayage-caramelo-premium.jpg" alt="Balayage caramelo" />
+            <h3>Balayage caramelo</h3>
+            <p>Dimensión cálida, contraste bonito y un acabado más elegante para la sección principal.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios">
+      <div class="container">
+        <p class="eyebrow">Servicios</p>
+        <h3 class="section-title">Todo lo necesario para construir un look completo</h3>
+        <p class="section-copy">
+          Cada servicio puede combinarse para diseñar una experiencia integral de cabello, imagen y acabado final.
+        </p>
+
+        <div class="services-grid">
+          <article class="card">
+            <div class="icon"></div>
+            <h4>Balayage, Babylights & Color</h4>
+            <p>Diseños de color personalizados, corrección de tono, iluminación estratégica y dimensión elegante.</p>
+          </article>
+          <article class="card">
+            <div class="icon"></div>
+            <h4>Cortes & Bases</h4>
+            <p>Cortes para dama y caballero, bases limpias y estructura visual con movimiento profesional.</p>
+          </article>
+          <article class="card">
+            <div class="icon"></div>
+            <h4>Ondulados, Peinados & Styling</h4>
+            <p>Ondas glam, peinados para eventos, alaciados pulidos y acabados con presencia femenina.</p>
+          </article>
+          <article class="card">
+            <div class="icon"></div>
+            <h4>Keratinas & Tratamientos</h4>
+            <p>Control de frizz, reparación, brillo, nutrición y suavidad para cabello reseco o poroso.</p>
+          </article>
+          <article class="card">
+            <div class="icon"></div>
+            <h4>Maquillaje & Uñas</h4>
+            <p>Servicios complementarios para elevar tu imagen con armonía, detalle y estilo.</p>
+          </article>
+          <article class="card">
+            <div class="icon"></div>
+            <h4>Cambio de Imagen</h4>
+            <p>Asesoría visual para transformar tu cabello de forma estética, funcional y favorecedora.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="results" id="resultados">
+      <div class="container">
+        <p class="eyebrow">Resultados reales</p>
+        <h3 class="section-title">Portafolio visual con imágenes completas</h3>
+        <p class="section-copy">
+          Aquí cada fotografía se muestra completa, sin separar el antes y después cuando ya viene en la misma imagen.
+          Así el portafolio se ve más limpio, más lógico y más fiel al trabajo real.
+        </p>
+
+        <div class="portfolio-grid">
+          <article class="portfolio-card">
+            <div class="portfolio-media">
+              <img src="img/queratina-cobrizo.jpg" alt="Antes y después de aplicación de queratina" />
+            </div>
+            <div class="portfolio-content">
+              <span class="label">Antes y después</span>
+              <h4>Aplicación de queratina</h4>
+              <p>Antes y después de aplicación de queratina, con un acabado más liso, uniforme y visualmente pulido.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <div class="portfolio-media">
+              <img src="img/rubio-a-cobrizo-nuevo.jpg" alt="Rubio a cobrizo antes y después" />
+            </div>
+            <div class="portfolio-content">
+              <span class="label">Antes y después</span>
+              <h4>Rubio a cobrizo</h4>
+              <p>Transformación de rubio a cobrizo con una imagen más limpia y presentable, manteniendo el antes y después en la misma composición.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <div class="portfolio-media">
+              <img src="img/correccion-de-color.jpg" alt="Corrección de color" />
+            </div>
+            <div class="portfolio-content">
+              <span class="label">Corrección</span>
+              <h4>Corrección de color</h4>
+              <p>Resultado enfocado en equilibrar tono, pulir el acabado visual y mejorar la armonía general del cabello.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <div class="portfolio-media">
+              <img src="img/balayage-rojizo.jpg" alt="Balayage rojizo" />
+            </div>
+            <div class="portfolio-content">
+              <span class="label">Resultado final</span>
+              <h4>Balayage rojizo</h4>
+              <p>Balayage en tono rojizo con un acabado intenso, elegante y con más presencia visual dentro del portafolio.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <div class="portfolio-media">
+              <img src="img/balayage-dorado-cobrizo.jpg" alt="Balayage dorado cobrizo" />
+            </div>
+            <div class="portfolio-content">
+              <span class="label">Color final</span>
+              <h4>Balayage dorado cobrizo</h4>
+              <p>Lo integré para dar más vida y variedad cálida a la galería, con un tono más editorial y llamativo.</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <div class="portfolio-media">
+              <img src="img/beige-premium.jpg" alt="Color beige premium" />
+            </div>
+            <div class="portfolio-content">
+              <span class="label">Beige premium</span>
+              <h4>Rubio beige suave</h4>
+              <p>Esta imagen aporta una variedad más clara y luminosa para equilibrar los tonos cálidos del resto del portafolio.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="promo-section" id="promocion">
+      <div class="container">
+        <p class="eyebrow">Promoción destacada</p>
+        <h3 class="section-title">Haz que tu próxima cita se sienta como un cambio de era</h3>
+        <div class="promo-grid">
+          <article class="promo-card">
+            <span class="label">Lovely Experience</span>
+            <h4>Valoración + diseño de look + acabado impecable</h4>
+            <p>
+              Una propuesta ideal para clientas que buscan verse renovadas con una guía profesional antes de tomar una
+              decisión importante sobre su cabello.
+            </p>
+            <ul class="promo-list">
+              <li>Diagnóstico visual del cabello y recomendación personalizada.</li>
+              <li>Propuesta de tono, forma, movimiento y acabado final.</li>
+              <li>Atención enfocada en armonía, imagen y mantenimiento realista.</li>
+            </ul>
+          </article>
+
+          <article class="testimonials-card">
+            <span class="label">Testimonios</span>
+            <h4>Resultados que inspiran confianza</h4>
+            <div class="testimonials-grid">
+              <div class="testimonial">
+                <p>“Me encantó el trato y el resultado. El color se ve elegante y mi cabello luce mucho más fino.”</p>
+                <strong>Clienta Lovely Jacky</strong>
+              </div>
+              <div class="testimonial">
+                <p>“La diferencia sí se nota. Todo quedó más limpio, con brillo y un acabado muy bonito.”</p>
+                <strong>Cambio de look</strong>
+              </div>
+              <div class="testimonial">
+                <p>“Se siente un estudio cuidado, femenino y profesional. Sales viéndote mejor y sintiéndote mejor.”</p>
+                <strong>Experiencia premium</strong>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="faq" style="background:linear-gradient(180deg,#fffaf6 0%,#f8f0e8 100%); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+      <div class="container">
+        <p class="eyebrow">Preguntas frecuentes</p>
+        <h3 class="section-title">Resolvemos tus dudas antes de tu cita</h3>
+        <p class="section-copy">
+          Este bloque ayuda a que la página se vea más clara y profesional, y también anima a la clienta a dar el siguiente paso.
+        </p>
+
+        <div class="services-grid" style="margin-top:26px;">
+          <article class="card">
+            <h4>¿Qué servicios manejan?</h4>
+            <p>Manejamos colorimetría, cambios de look, correcciones de color, balayage, babylights, contouring, queratinas, bases, ondulados, peinados, maquillaje y uñas.</p>
+          </article>
+          <article class="card">
+            <h4>¿Necesito valoración para color?</h4>
+            <p>Sí, en servicios de color, corrección o cambios más específicos, lo ideal es realizar una valoración previa para orientarte mejor según el estado actual de tu cabello.</p>
+          </article>
+          <article class="card">
+            <h4>¿Manejan queratinas?</h4>
+            <p>Sí, manejamos queratinas. La recomendación depende del tipo de cabello, historial químico y resultado que buscas.</p>
+          </article>
+          <article class="card">
+            <h4>¿Cómo puedo agendar?</h4>
+            <p>Puedes agendar desde el apartado de citas o por WhatsApp. Si necesitas orientación primero, Lovely Jacky puede ayudarte a dar ese paso.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="agenda">
+      <div class="container">
+        <p class="eyebrow">Agenda de citas</p>
+        <h3 class="section-title">Reserva tu experiencia en Lovely Jacky</h3>
+        <div class="book-grid">
+          <article class="card">
+            <form class="form-grid">
+              <input class="input" type="text" placeholder="Nombre completo" />
+              <input class="input" type="tel" placeholder="WhatsApp" />
+              <input class="input" type="text" placeholder="Servicio de interés" />
+              <input class="input" type="text" placeholder="Fecha deseada" />
+              <select class="select full">
+                <option>Tipo de cabello</option>
+                <option>Lacio</option>
+                <option>Ondulado</option>
+                <option>Rizado</option>
+              </select>
+              <textarea class="textarea" placeholder="Cuéntanos qué te gustaría lograr con tu cabello"></textarea>
+              <a class="btn btn-primary full" href="https://wa.me/524421729654" target="_blank" rel="noopener noreferrer">Solicitar cita por WhatsApp</a>
+            </form>
+          </article>
+
+          <article class="card">
+            <h4 style="margin:0;font-size:28px;color:#5b4b40;">Formulario del estado del cabello</h4>
+            <p class="section-copy" style="margin-top:12px;max-width:none;">Diagnóstico previo para recomendar mejor el servicio.</p>
+
+            <div class="check-item">
+              <strong>¿Tu cabello está teñido actualmente?</strong>
+              <div class="chips"><span class="chip">Sí</span><span class="chip">No</span><span class="chip">No estoy segura</span></div>
+            </div>
+            <div class="check-item">
+              <strong>¿Has tenido decoloración, alaciado o keratina?</strong>
+              <div class="chips"><span class="chip">Sí</span><span class="chip">No</span><span class="chip">Hace tiempo</span></div>
+            </div>
+            <div class="check-item">
+              <strong>¿Tu cabello se siente reseco, elástico o quebradizo?</strong>
+              <div class="chips"><span class="chip">Reseco</span><span class="chip">Elástico</span><span class="chip">Quebradizo</span></div>
+            </div>
+            <div class="check-item">
+              <strong>¿Qué resultado deseas lograr?</strong>
+              <div class="chips"><span class="chip">Iluminar</span><span class="chip">Corregir color</span><span class="chip">Alaciar</span><span class="chip">Peinar</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">Contacto</p>
+          <h3 class="section-title">Tu próxima versión te está esperando</h3>
+          <p class="section-copy">
+            Agenda por WhatsApp y comparte una foto de tu cabello para orientarte mejor antes de tu cita.
+          </p>
+        </div>
+
+        <article class="card contact-list">
+          <p><strong>Estudio:</strong> LOVELY JACKY HAIR STUDIO</p>
+          <p><strong>Dirección:</strong> Ciudad del Sol, Valle de Santiago, Calle Valle del Salitre 216-B</p>
+          <p><strong>WhatsApp:</strong> 442 172 9654</p>
+          <p><strong>Horario:</strong> Martes a sábado de 11:00 am a 7:00 pm · Domingo de 11:00 am a 4:00 pm · Lunes cerrado</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://wa.me/524421729654" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
+            <a class="btn btn-secondary" href="https://www.facebook.com/lovelyjacky.hairstudio" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a class="btn btn-secondary" href="https://www.instagram.com/hairstudiojacky/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer-premium">
+    <div class="container footer-grid">
+      <div class="footer-box">
+        <h4 class="footer-brand">Lovely Jacky Hair Studio</h4>
+        <p class="footer-copy">
+          Tu mejor versión comienza en tu cabello. Diseño de imagen, color, técnica y detalle en una experiencia femenina,
+          elegante y profesional.
+        </p>
+        <div class="footer-links">
+          <a href="#inicio">Inicio</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#resultados">Resultados</a>
+          <a href="#promocion">Promoción</a>
+          <a href="#agenda">Agenda</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </div>
+      <div class="footer-box">
+        <p class="footer-copy"><strong>Redes:</strong> Facebook e Instagram integrados en la sección de contacto.</p>
+        <p class="footer-copy"><strong>Práctica:</strong> Prototipo visual listo para mostrar en Visual Studio y presentar en tu curso.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="floating-wa" href="https://wa.me/524421729654" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+</body>
+</html>
